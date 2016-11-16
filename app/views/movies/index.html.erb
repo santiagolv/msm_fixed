@@ -1,4 +1,12 @@
 <div class="page-header">
+
+<% if current_user != nil %>
+<h1>
+  Welcome back, <%= current_user.email %>
+</h1>
+<% end %>
+
+
   <h1>
     Movies
     <a href="/movies/new" class="btn btn-lg btn-success">New Movie</a>

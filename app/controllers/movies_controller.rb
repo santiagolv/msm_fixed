@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
+  skip_before_action :authenticate_user!, :only =>[:index, :show]
+  
   def index
     @q = Movie.ransack(params[:q])
     @movies = @q.result(:distinct => true).includes(:director, :characters, :cast).page(params[:page]).per(10)
